@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Aviones</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'crear_avion' %}">Crear Avión</a></li>
+            <li><a href="{% url 'listado_aviones' %}">Listado de Aviones</a></li>
+        </ul>
+    </nav>
+    <h1>Listado de Aviones</h1>
+    <ul>
+        {% for avion in aviones %}
+            <li>{{ avion.marca }} {{ avion.modelo }} ({{ avion.anio }}) - {{ avion.color }}</li>
+        {% endfor %}
+    </ul>
+
+    {% for avion in aviones %}
+        <div>
+            <h2>{{ avion.marca }} {{ avion.modelo }}</h2>
+            <p>Año: {{ avion.anio }}</p>
+            <p>Color: {{ avion.color }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

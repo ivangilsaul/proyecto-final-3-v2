@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Avión</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'crear_avion' %}">Crear Avión</a></li>
+            <li><a href="{% url 'listado_aviones' %}">Listado de Aviones</a></li>
+        </ul>
+    </nav>
+    <h1>Crear Avión</h1>
+
+    <form action="{% url 'crear_avion' %}" method="post">
+        <input type="text" name="marca" placeholder="Marca">
+        <input type="text" name="modelo" placeholder="Modelo">
+        <input type="number" name="anio" placeholder="Año">
+        <input type="text" name="color" placeholder="Color">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear</button>
+    </form>
+</body>
+</html>
+</html>
